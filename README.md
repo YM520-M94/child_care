@@ -57,3 +57,66 @@
 
 ### ローカルでの動作方法
 - 実装後、追記
+
+
+# テーブル設計
+
+## usersテーブル
+
+| Column             | Type   | Options     |
+| ------------------ | ------ | ----------- |
+| nickname           | srting | null: false |
+| email              | srting | null: false |
+| encrypted_password | srting | null: false |
+
+### Association
+
+- has_many :records
+- has_many :comments
+- has_many :lunches
+- has_many :news
+
+
+## recordsテーブル
+
+| Column            | Type       | Options                        |
+| ----------------- | ---------- | ------------------------------ |
+| date              | date       | null: false                    |
+| weather           | srting     | null: false                    |
+| title             | srting     | null: false                    |
+| diary             | text       | null: false                    |
+| user              | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :user
+- has_many :comments
+
+
+## commentsテーブル
+
+| Column            | Type       | Options                        |
+| ----------------- | ---------- | ------------------------------ |
+| comment           | date       | null: false                    |
+| user              | references | null: false, foreign_key: true |
+| record            | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :user
+- belongs_to :record
+
+## lunchesテーブル
+
+| Column            | Type       | Options                        |
+| ----------------- | ---------- | ------------------------------ |
+| date              | date       | null: false                    |
+| menu              | text       | null: false                    |
+
+
+## newsテーブル
+
+| Column            | Type       | Options                        |
+| ----------------- | ---------- | ------------------------------ |
+| date              | date       | null: false                    |
+| news              | text       | null: false                    |
