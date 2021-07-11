@@ -63,11 +63,11 @@
 
 ## usersテーブル
 
-| Column             | Type   | Options     |
-| ------------------ | ------ | ----------- |
-| nickname           | srting | null: false |
-| email              | srting | null: false |
-| encrypted_password | srting | null: false |
+| Column             | Type   | Options                   |
+| ------------------ | ------ | ------------------------- |
+| nickname           | string | null: false               |
+| email              | string | null: false, unique: true |
+| encrypted_password | string | null: false               |
 
 ### Association
 
@@ -82,8 +82,8 @@
 | Column            | Type       | Options                        |
 | ----------------- | ---------- | ------------------------------ |
 | date              | date       | null: false                    |
-| weather           | srting     | null: false                    |
-| title             | srting     | null: false                    |
+| weather           | string     | null: false                    |
+| title             | string     | null: false                    |
 | diary             | text       | null: false                    |
 | user              | references | null: false, foreign_key: true |
 
