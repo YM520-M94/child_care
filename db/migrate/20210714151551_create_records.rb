@@ -1,7 +1,7 @@
 class CreateRecords < ActiveRecord::Migration[6.0]
   def change
     create_table :records do |t|
-      t.datetime   :date,    null: false 
+      t.date       :date,    null: false 
       t.string     :weather, null: false 
       t.string     :title,   null: false 
       t.text       :diary,   null: false 
