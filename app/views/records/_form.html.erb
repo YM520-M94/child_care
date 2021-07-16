@@ -1,0 +1,32 @@
+<%= form_with model: record, local: true do |f|%>
+<%= render 'shared/error_messages', model: f.object %>
+
+  <div class="field">
+    <%= f.label :image, "写真" %><br />
+    <%= f.file_field :image, id:"record_image" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :date, "日付" %><br />
+    <%= f.date_select :date, id:"record_date" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :weather, "天気" %><br />
+    <%= f.text_field :weather,  id:"record_weather" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :title, "タイトル" %><br />
+    <%= f.text_area :title,  id:"record_title" %>
+  </div>
+
+    <div class="field">
+    <%= f.label :diary, "日記" %><br />
+    <%= f.text_area :diary, id:"record_diary" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "保存する", class: :form__btn  %>
+  </div>
+<% end %>

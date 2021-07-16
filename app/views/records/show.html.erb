@@ -1,0 +1,64 @@
+<main class="main">
+  <div class="inner">
+    <div class="prototype__wrapper">
+      <p class="prototype__hedding">
+        <%= @record.title %>
+      </p>
+      <%= link_to "by #{@record.user.nickname}", root_path, class: :prototype__user %>
+
+      <% if user_signed_in? && current_user.id == @record.user_id %>
+        <div class="prototype__manage">
+          <%= link_to "編集する",  edit_record_path(@record), class: :prototype__btn %>
+          <%= link_to "削除する",  record_path(@record), method: :delete, class: :prototype__btn %>
+        </div>
+      <% end %>
+      
+      <div class="prototype__image">
+        <%= image_tag @record.image %>
+      </div>
+      <div class="prototype__body">
+        <div class="prototype__detail">
+          <p class="detail__title">日付</p>
+          <p class="detail__message">
+            <%= @record.date %>
+          </p> 
+        </div>
+        <div class="prototype__detail">
+          <p class="detail__title">天気</p>
+          <p class="detail__message">
+            <%= @record.weather %>
+          </p>
+        </div>
+                <div class="prototype__detail">
+          <p class="detail__title">日記</p>
+          <p class="detail__message">
+            <%= @record.diary %>
+          </p>
+        </div>
+      </div>
+      <div class="prototype__comments">
+
+      <%# <% if user_signed_in? %>
+          <%# <%= form_with model: @record,local: true do |f| %>
+            <%# <div class="field"> %>
+              <%# <%= f.label :text, "コメント"<br /> %>
+              <%# <%= f.text_field :text, id:"comment_text" %>
+            <%# </div> %>
+            <%# <div class="actions"> %>
+              <%# <%= f.submit "送信する", class: :form__btn  %>
+            <%# </div> %>
+          <%# <% end %>
+      <%# <% end %>
+
+        <ul class="comments_lists">
+          <%# 投稿に紐づくコメントを一覧する処理を記述する %>
+            <li class="comments_list">
+              <%# <%= " コメントのテキスト "%>
+              <%# <%= link_to "（ ユーザー名 ）", root_path, class: :comment_user %>
+            </li>
+          <%# // 投稿に紐づくコメントを一覧する処理を記述する %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</main>
