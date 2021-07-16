@@ -19,10 +19,10 @@
           </div>
           <% if user_signed_in? %>
             <div class="nav__right">
-              <%= link_to "お知らせ", root_path, class: :nav__btn %>
-              <%= link_to "今日のランチ", root_path, class: :nav__btn %>
-              <%= link_to "日記の作成", root_path, class: :nav__btn %>
-              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: :nav__logout %>
+              <%= link_to "お知らせ",     root_path, class: :nav__btn %>
+              <%= link_to "ランチ",  root_path, class: :nav__btn %>
+              <%= link_to "活動日記",     new_record_path, class: :nav__btn %>
+              <%= link_to "ログアウト",   destroy_user_session_path, method: :delete, class: :nav__logout %>
             </div>
           <% else %>
             <div class="nav__right">

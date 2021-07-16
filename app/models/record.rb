@@ -3,5 +3,10 @@ class Record < ApplicationRecord
   belongs_to :user
   has_one_attached :image
 
-  validates :image, presence: true
+  with_options presence: true do
+    validates :image
+    validates :title
+    validates :diary
+    validates :weather
+  end
 end

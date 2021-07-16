@@ -26,14 +26,18 @@ class RecordsController < ApplicationController
 
   def update
     if @record.update(record_params)
-      redirect_to: record_path(@record)
+      redirect_to record_path(@record)
     else
       render :edit
     end
   end
 
   def destroy
-    
+    if @record.destroy
+      redirect_to root_path
+    else
+      redirect_to poot_path
+    end
   end
 
   private
